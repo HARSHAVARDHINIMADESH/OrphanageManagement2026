@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Hands2Hands - Home</title>
+
+    <link
+        rel="stylesheet"
+        href="homestyle.css"
+    >
+
+    <style>
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 15px;
+        }
+
+        .auth-button {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .user-login-button {
+            background: #1769aa;
+            color: white;
+        }
+
+        .admin-login-button {
+            background: #37474f;
+            color: white;
+        }
+
+        .logout-button {
+            background: #c62828;
+            color: white;
+        }
+
+        .admin-button {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .auth-button:hover {
+            opacity: 0.85;
+        }
+
+        .welcome-user {
+            font-weight: 600;
+            color: #1769aa;
+        }
+
+        @media (max-width: 900px) {
+
+            .auth-buttons {
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Hands2Hands
+            </div>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="adopt.html">
+                    Adoption
+                </a>
+
+                <a href="donat.html">
+                    Donate
+                </a>
+
+                <a href="volunteer.html">
+                    Volunteer
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="report.html">
+                    Report
+                </a>
+
+
+                <!-- LOGIN / LOGOUT AREA -->
+
+                <div
+                    class="auth-buttons"
+                    id="authButtons"
+                >
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Hero Section -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+                    Welcome to Hands2Hands
+                </h1>
+
+
+                <p>
+                    Every child deserves love,
+                    care, education and a better future.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="adopt.html"
+                        class="btn"
+                    >
+                        Adopt a Child
+                    </a>
+
+
+                    <a
+                        href="donat.html"
+                        class="btn"
+                    >
+                        Donate Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- About Section -->
+
+        <section class="about">
+
+            <h2>
+                Together We Can Make a Difference
+            </h2>
+
+
+            <p>
+                Hands2Hands is a platform created
+                to support children in need and
+                connect caring people with
+                meaningful opportunities to help.
+            </p>
+
+        </section>
+
+
+
+        <!-- Services -->
+
+        <section class="services">
+
+
+            <div class="service-card">
+
+                <h3>
+                    Adoption
+                </h3>
+
+
+                <p>
+                    Learn about children who need
+                    a loving and supportive family.
+                </p>
+
+
+                <a href="adopt.html">
+                    Learn More
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <h3>
+                    Donations
+                </h3>
+
+
+                <p>
+                    Your contribution can help provide
+                    education, food and essential care.
+                </p>
+
+
+                <a href="donat.html">
+                    Donate
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <h3>
+                    Volunteer
+                </h3>
+
+
+                <p>
+                    Share your time and skills to
+                    support children and our activities.
+                </p>
+
+
+                <a href="volunteer.html">
+                    Join Us
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Hands2Hands.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        /*
+         * ==========================================
+         * HANDS2HANDS LOGIN / LOGOUT UI
+         * ==========================================
+         */
+
+        function getLoggedInUser() {
+
+            try {
+
+                const user =
+                    localStorage.getItem(
+                        "hands2hands_user"
+                    );
+
+                if (!user) {
+                    return null;
+                }
+
+                return JSON.parse(user);
+
+            } catch (error) {
+
+                console.error(
+                    "User data error:",
+                    error
+                );
+
+                return null;
+
+            }
+
+        }
+
+
+
+        function getToken() {
+
+            return localStorage.getItem(
+                "hands2hands_token"
+            );
+
+        }
+
+
+
+        function logoutUser() {
+
+            /*
+             * Remove current login session
+             */
+
+            localStorage.removeItem(
+                "hands2hands_token"
+            );
+
+            localStorage.removeItem(
+                "hands2hands_user"
+            );
+
+
+            /*
+             * Remove old keys also
+             */
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+
+
+            /*
+             * Go back to Home
+             */
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        function showAuthButtons() {
+
+            const authButtons =
+                document.getElementById(
+                    "authButtons"
+                );
+
+
+            if (!authButtons) {
+                return;
+            }
+
+
+            const user =
+                getLoggedInUser();
+
+            const token =
+                getToken();
+
+
+            /*
+             * ======================================
+             * NOT LOGGED IN
+             * ======================================
+             */
+
+            if (!user || !token) {
+
+                authButtons.innerHTML = `
+
+                    <a
+                        href="login.html?role=user"
+                        class="auth-button user-login-button"
+                    >
+                        User Login
+                    </a>
+
+
+                    <a
+                        href="login.html?role=admin"
+                        class="auth-button admin-login-button"
+                    >
+                        Admin Login
+                    </a>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            /*
+             * ======================================
+             * ADMIN LOGGED IN
+             * ======================================
+             */
+
+            if (user.role === "admin") {
+
+                authButtons.innerHTML = `
+
+                    <span class="welcome-user">
+                        Hi, ${escapeHtml(user.name || "Admin")}
+                    </span>
+
+
+                    <a
+                        href="admin.html"
+                        class="auth-button admin-button"
+                    >
+                        Admin Dashboard
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="auth-button logout-button"
+                        onclick="logoutUser()"
+                    >
+                        Logout
+                    </button>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            /*
+             * ======================================
+             * NORMAL USER LOGGED IN
+             * ======================================
+             */
+
+            authButtons.innerHTML = `
+
+                <span class="welcome-user">
+                    Hi, ${escapeHtml(user.name || "User")}
+                </span>
+
+
+                <button
+                    type="button"
+                    class="auth-button logout-button"
+                    onclick="logoutUser()"
+                >
+                    Logout
+                </button>
+
+            `;
+
+        }
+
+
+
+        /*
+         * ==========================================
+         * HTML ESCAPE
+         * ==========================================
+         */
+
+        function escapeHtml(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /*
+         * ==========================================
+         * PAGE LOAD
+         * ==========================================
+         */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                showAuthButtons();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

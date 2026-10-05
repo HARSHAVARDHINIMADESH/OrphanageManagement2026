@@ -1,0 +1,422 @@
+
+/* ==========================================
+   HANDS2HANDS LOGIN PAGE
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #e3f2fd,
+        #f5f7fa
+    );
+
+    padding: 20px;
+}
+
+
+/* ==========================================
+   LOGIN CONTAINER
+========================================== */
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+
+/* ==========================================
+   LOGIN BOX
+========================================== */
+
+.login-box {
+    background: #ffffff;
+
+    width: 100%;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   LOGO / MAIN TITLE
+========================================== */
+
+.login-box h1 {
+    color: #1769aa;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   LOGIN TITLE
+========================================== */
+
+.login-box h2 {
+    color: #333333;
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.login-box > p,
+#loginDescription {
+    color: #777777;
+
+    font-size: 14px;
+
+    margin-bottom: 28px;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+#loginForm {
+    width: 100%;
+
+    text-align: left;
+}
+
+
+/* ==========================================
+   FORM GROUP
+========================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   INPUT
+========================================== */
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ==========================================
+   INPUT FOCUS
+========================================== */
+
+.form-group input:focus {
+    border-color: #1769aa;
+
+    box-shadow:
+        0 0 0 3px rgba(23, 105, 170, 0.12);
+}
+
+
+/* ==========================================
+   LOGIN BUTTON
+========================================== */
+
+.login-btn {
+    width: 100%;
+
+    padding: 13px 20px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #1769aa;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ==========================================
+   LOGIN BUTTON HOVER
+========================================== */
+
+.login-btn:hover {
+    background: #125a91;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   LOGIN BUTTON ACTIVE
+========================================== */
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.message {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 10px 12px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    display: none;
+}
+
+
+/* ==========================================
+   SUCCESS MESSAGE
+========================================== */
+
+.message.success {
+    display: block;
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+    border: 1px solid #a5d6a7;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.message.error {
+    display: block;
+
+    background: #ffebee;
+
+    color: #c62828;
+
+    border: 1px solid #ef9a9a;
+}
+
+
+/* ==========================================
+   LOGIN LINKS
+========================================== */
+
+.login-links {
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   LINK
+========================================== */
+
+.login-links a {
+    color: #1769aa;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   LINK HOVER
+========================================== */
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   LOGIN LINKS PARAGRAPH
+========================================== */
+
+.login-links p {
+    margin: 18px 0;
+
+    color: #666666;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   BACK TO HOME
+========================================== */
+
+.login-links > a:last-child {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    color: #555555;
+
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   ADMIN LOGIN
+========================================== */
+
+body.admin-login .login-box h2 {
+    color: #37474f;
+}
+
+
+body.admin-login .login-btn {
+    background: #37474f;
+}
+
+
+body.admin-login .login-btn:hover {
+    background: #263238;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+
+    .login-box {
+        padding: 30px 22px;
+
+        border-radius: 14px;
+    }
+
+
+    .login-box h1 {
+        font-size: 28px;
+    }
+
+
+    .login-box h2 {
+        font-size: 21px;
+    }
+
+
+    .form-group input {
+        padding: 12px;
+    }
+
+
+    .login-btn {
+        padding: 12px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .login-box {
+        padding: 25px 18px;
+    }
+
+
+    .login-box h1 {
+        font-size: 25px;
+    }
+
+
+    .login-box h2 {
+        font-size: 19px;
+    }
+
+}

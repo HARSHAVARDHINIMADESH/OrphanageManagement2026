@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Volunteer - Hands2Hands</title>
+
+    <link
+        rel="stylesheet"
+        href="homestyle.css"
+    >
+
+    <style>
+
+        .volunteer-page {
+
+            min-height: 100vh;
+
+            padding: 55px 20px;
+
+            background: #f5f9fc;
+
+        }
+
+
+        .volunteer-container {
+
+            max-width: 900px;
+
+            margin: auto;
+
+        }
+
+
+        .volunteer-heading {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .volunteer-heading h1 {
+
+            color: #1769aa;
+
+            font-size: 38px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .volunteer-heading p {
+
+            color: #607d8b;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .volunteer-card {
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.10);
+
+        }
+
+
+        .volunteer-card h2 {
+
+            text-align: center;
+
+            color: #1769aa;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: 600;
+
+            color: #37474f;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 13px;
+
+            border: 1px solid #cfd8dc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-family: inherit;
+
+            outline: none;
+
+            background: white;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #1769aa;
+
+            box-shadow:
+                0 0 0 2px rgba(23, 105, 170, 0.08);
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 130px;
+
+            resize: vertical;
+
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #1769aa;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .submit-btn:hover {
+
+            background: #0d4775;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        #formMessage {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+        }
+
+
+        .volunteer-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .info-box {
+
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.06);
+
+        }
+
+
+        .info-box h3 {
+
+            color: #1769aa;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .info-box p {
+
+            color: #607d8b;
+
+            margin: 0;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .volunteer-info {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .volunteer-card {
+
+                padding: 25px;
+
+            }
+
+
+            .volunteer-heading h1 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="index.html">
+                Hands2Hands
+            </a>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="adopt.html">
+                    Adoption
+                </a>
+            </li>
+
+            <li>
+                <a href="donat.html">
+                    Donate
+                </a>
+            </li>
+
+            <li>
+                <a href="volunteer.html">
+                    Volunteer
+                </a>
+            </li>
+
+            <li>
+                <a href="events.html">
+                    Events
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- Main -->
+
+    <main class="volunteer-page">
+
+        <div class="volunteer-container">
+
+
+            <!-- Heading -->
+
+            <div class="volunteer-heading">
+
+                <h1>
+                    Become a Volunteer
+                </h1>
+
+                <p>
+                    Your time, skills and kindness can make
+                    a meaningful difference in a child's life.
+                </p>
+
+            </div>
+
+
+
+            <!-- Information -->
+
+            <div class="volunteer-info">
+
+
+                <div class="info-box">
+
+                    <h3>
+                        🤝 Support
+                    </h3>
+
+                    <p>
+                        Help children with their daily needs
+                        and activities.
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <h3>
+                        📚 Educate
+                    </h3>
+
+                    <p>
+                        Share your knowledge and help children
+                        learn new skills.
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <h3>
+                        ❤️ Care
+                    </h3>
+
+                    <p>
+                        Spend meaningful time with children
+                        and support their growth.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Form -->
+
+            <div class="volunteer-card">
+
+                <h2>
+                    Volunteer Application
+                </h2>
+
+
+                <form id="volunteerForm">
+
+
+                    <!-- Name + Email -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Phone + Availability -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="availability">
+                                Availability
+                            </label>
+
+                            <select
+                                id="availability"
+                                name="availability"
+                            >
+
+                                <option value="">
+                                    Select availability
+                                </option>
+
+                                <option value="Weekdays">
+                                    Weekdays
+                                </option>
+
+                                <option value="Weekends">
+                                    Weekends
+                                </option>
+
+                                <option value="Both">
+                                    Weekdays & Weekends
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Activities -->
+
+                    <div class="form-group">
+
+                        <label for="activities">
+                            Activities You Are Interested In
+                        </label>
+
+                        <select
+                            id="activities"
+                            name="activities"
+                        >
+
+                            <option value="">
+                                Select an activity
+                            </option>
+
+                            <option value="Education">
+                                Education & Tutoring
+                            </option>
+
+                            <option value="Sports">
+                                Sports & Games
+                            </option>
+
+                            <option value="Events">
+                                Events & Activities
+                            </option>
+
+                            <option value="Food">
+                                Food & Meal Support
+                            </option>
+
+                            <option value="General">
+                                General Support
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Message -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Tell Us About Yourself
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your skills, interests and why you would like to volunteer..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Apply as Volunteer
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- Response -->
+
+                <div id="formMessage"></div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

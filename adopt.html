@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Adopt a Child - Hands2Hands
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="homestyle.css"
+    >
+
+    <style>
+
+        .adoption-page {
+
+            min-height: 100vh;
+
+            padding: 50px 20px;
+
+            background: #f5f9fc;
+
+        }
+
+
+        .adoption-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .page-heading {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .page-heading h1 {
+
+            color: #1769aa;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-heading p {
+
+            color: #607d8b;
+
+            font-size: 17px;
+
+        }
+
+
+        .login-notice {
+
+            text-align: center;
+
+            background: #fff3cd;
+
+            color: #856404;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .login-notice a {
+
+            color: #1769aa;
+
+            font-weight: bold;
+
+        }
+
+
+        #childrenList {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+
+            gap: 25px;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .child-card {
+
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+
+        }
+
+
+        .child-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .child-card h3 {
+
+            color: #1769aa;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .child-info {
+
+            margin: 8px 0;
+
+            color: #455a64;
+
+        }
+
+
+        .child-status {
+
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: #e8f5e9;
+
+            color: #2e7d32;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-top: 10px;
+
+        }
+
+
+        .select-child-btn {
+
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #1769aa;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .select-child-btn:hover {
+
+            background: #0d4775;
+
+        }
+
+
+        .adoption-form-card {
+
+            max-width: 600px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        .adoption-form-card h2 {
+
+            text-align: center;
+
+            color: #1769aa;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: 600;
+
+            color: #37474f;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 12px;
+
+            border: 1px solid #cfd8dc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: white;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #1769aa;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #1769aa;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit-btn:hover {
+
+            background: #0d4775;
+
+        }
+
+
+        #formMessage {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+        }
+
+
+        #formMessage.success {
+
+            color: #2e7d32;
+
+        }
+
+
+        #formMessage.error {
+
+            color: #c62828;
+
+        }
+
+
+        .no-children {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            color: #607d8b;
+
+        }
+
+
+        .selected-child {
+
+            margin-top: 10px;
+
+            padding: 10px;
+
+            background: #e3f2fd;
+
+            color: #1769aa;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .page-heading h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .adoption-page {
+
+                padding: 35px 15px;
+
+            }
+
+
+            .adoption-form-card {
+
+                padding: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="index.html">
+                Hands2Hands
+            </a>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="adopt.html">
+                    Adoption
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="donat.html"
+                    onclick="return checkUserAccess('donat.html')"
+                >
+                    Donate
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="volunteer.html">
+                    Volunteer
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
+
+    <main class="adoption-page">
+
+        <div class="adoption-container">
+
+
+            <!-- ======================================
+                 PAGE HEADING
+            ======================================= -->
+
+            <div class="page-heading">
+
+                <h1>
+                    Adopt a Child
+                </h1>
+
+                <p>
+                    Give a child a loving and caring future.
+                </p>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 LOGIN NOTICE
+            ======================================= -->
+
+            <div
+                id="loginNotice"
+                class="login-notice"
+                style="display: none;"
+            >
+
+                Please
+
+                <a href="login.html?role=user">
+                    login
+                </a>
+
+                to submit an adoption application.
+
+            </div>
+
+
+
+            <!-- ======================================
+                 CHILDREN LIST
+            ======================================= -->
+
+            <div id="childrenList">
+
+                <p class="no-children">
+
+                    Loading children...
+
+                </p>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 ADOPTION FORM
+            ======================================= -->
+
+            <div class="adoption-form-card">
+
+                <h2>
+                    Adoption Application
+                </h2>
+
+
+                <form id="adoptionForm">
+
+
+                    <!-- ==================================
+                         SELECT CHILD
+                    =================================== -->
+
+                    <div class="form-group">
+
+                        <label for="childId">
+
+                            Select Child
+
+                        </label>
+
+
+                        <select
+                            id="childId"
+                            name="child_id"
+                            required
+                        >
+
+                            <option value="">
+
+                                Select a child
+
+                            </option>
+
+                        </select>
+
+
+                        <div
+                            id="selectedChild"
+                            class="selected-child"
+                            style="display: none;"
+                        ></div>
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         APPLICATION DATE
+                    =================================== -->
+
+                    <div class="form-group">
+
+                        <label for="applicationDate">
+
+                            Application Date
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="applicationDate"
+                            name="applicationDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         REMARKS
+                    =================================== -->
+
+                    <div class="form-group">
+
+                        <label for="remarks">
+
+                            Message / Remarks
+
+                        </label>
+
+
+                        <textarea
+                            id="remarks"
+                            name="remarks"
+                            placeholder="Tell us why you would like to apply for adoption..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         SUBMIT
+                    =================================== -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+
+                        Submit Adoption Application
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- ==================================
+                     FORM MESSAGE
+                =================================== -->
+
+                <div id="formMessage"></div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         MAIN SCRIPT
+    =========================================== -->
+
+    <script src="script.js"></script>
+
+
+
+    <!-- ==========================================
+         ADOPTION PAGE SCRIPT
+    =========================================== -->
+
+    <script>
+
+
+        /* ==========================================
+           DATE
+        ========================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const dateInput =
+                    document.getElementById(
+                        "applicationDate"
+                    );
+
+
+                if (dateInput) {
+
+                    const today =
+                        new Date()
+                            .toISOString()
+                            .split("T")[0];
+
+
+                    dateInput.value =
+                        today;
+
+                }
+
+            }
+        );
+
+
+
+        /* ==========================================
+           LOGIN NOTICE
+        ========================================== */
+
+        function updateLoginNotice() {
+
+            const token =
+                localStorage.getItem(
+                    "hands2hands_token"
+                );
+
+
+            const user =
+                localStorage.getItem(
+                    "hands2hands_user"
+                );
+
+
+            const notice =
+                document.getElementById(
+                    "loginNotice"
+                );
+
+
+            if (!notice) {
+
+                return;
+
+            }
+
+
+            if (!token || !user) {
+
+                notice.style.display =
+                    "block";
+
+            } else {
+
+                notice.style.display =
+                    "none";
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           SELECT CHILD
+        ========================================== */
+
+        function chooseChild(childId, childName) {
+
+            const select =
+                document.getElementById(
+                    "childId"
+                );
+
+
+            const selectedChild =
+                document.getElementById(
+                    "selectedChild"
+                );
+
+
+            if (!select) {
+
+                return;
+
+            }
+
+
+            select.value =
+                String(childId);
+
+
+            if (selectedChild) {
+
+                selectedChild.textContent =
+                    "Selected Child: " +
+                    childName +
+                    " (ID: " +
+                    childId +
+                    ")";
+
+
+                selectedChild.style.display =
+                    "block";
+
+            }
+
+
+            const formCard =
+                document.querySelector(
+                    ".adoption-form-card"
+                );
+
+
+            if (formCard) {
+
+                formCard.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           DROPDOWN CHANGE
+        ========================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const select =
+                    document.getElementById(
+                        "childId"
+                    );
+
+
+                const selectedChild =
+                    document.getElementById(
+                        "selectedChild"
+                    );
+
+
+                if (!select) {
+
+                    return;
+
+                }
+
+
+                select.addEventListener(
+                    "change",
+                    function () {
+
+                        const selectedOption =
+                            select.options[
+                                select.selectedIndex
+                            ];
+
+
+                        if (
+                            !select.value
+                        ) {
+
+                            if (selectedChild) {
+
+                                selectedChild.style.display =
+                                    "none";
+
+                                selectedChild.textContent =
+                                    "";
+
+                            }
+
+                            return;
+
+                        }
+
+
+                        if (selectedChild) {
+
+                            selectedChild.textContent =
+                                "Selected Child: " +
+                                selectedOption.textContent;
+
+                            selectedChild.style.display =
+                                "block";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ==========================================
+           LOAD CHILDREN
+        ========================================== */
+
+        async function loadAdoptionChildren() {
+
+            const childrenList =
+                document.getElementById(
+                    "childrenList"
+                );
+
+
+            const childSelect =
+                document.getElementById(
+                    "childId"
+                );
+
+
+            if (
+                !childrenList ||
+                !childSelect
+            ) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/children"
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load children."
+                    );
+
+                }
+
+
+                const allChildren =
+                    data.children || [];
+
+
+                /*
+                 * Only active children
+                 */
+
+                const children =
+                    allChildren.filter(
+                        function (child) {
+
+                            return (
+                                child.status ===
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+
+                /* ==================================
+                   NO CHILDREN
+                ================================== */
+
+                if (
+                    children.length === 0
+                ) {
+
+                    childrenList.innerHTML = `
+
+                        <div class="no-children">
+
+                            <h3>
+                                No children available
+                            </h3>
+
+                            <p>
+
+                                There are currently
+                                no children available
+                                for adoption.
+
+                            </p>
+
+                        </div>
+
+                    `;
+
+
+                    childSelect.innerHTML = `
+
+                        <option value="">
+
+                            No children available
+
+                        </option>
+
+                    `;
+
+
+                    return;
+
+                }
+
+
+
+                /* ==================================
+                   RESET DROPDOWN
+                ================================== */
+
+                childSelect.innerHTML = `
+
+                    <option value="">
+
+                        Select a child
+
+                    </option>
+
+                `;
+
+
+
+                /* ==================================
+                   CLEAR CARDS
+                ================================== */
+
+                childrenList.innerHTML =
+                    "";
+
+
+
+                /* ==================================
+                   CREATE CHILD CARDS
+                ================================== */
+
+                children.forEach(
+                    function (child) {
+
+
+                        /* ==========================
+                           DROPDOWN OPTION
+                        =========================== */
+
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+
+
+                        option.value =
+                            child.id;
+
+
+                        option.textContent =
+                            child.name +
+                            " (ID: " +
+                            child.id +
+                            ")";
+
+
+                        childSelect.appendChild(
+                            option
+                        );
+
+
+
+                        /* ==========================
+                           CHILD CARD
+                        =========================== */
+
+                        const card =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        card.className =
+                            "child-card";
+
+
+
+                        card.innerHTML = `
+
+                            <h3>
+
+                                ${escapeHTML(
+                                    child.name
+                                )}
+
+                            </h3>
+
+
+                            <p class="child-info">
+
+                                <strong>
+                                    Gender:
+                                </strong>
+
+                                ${escapeHTML(
+                                    child.gender ||
+                                    "Not specified"
+                                )}
+
+                            </p>
+
+
+                            <p class="child-info">
+
+                                <strong>
+                                    Education:
+                                </strong>
+
+                                ${escapeHTML(
+                                    child.education ||
+                                    "Not specified"
+                                )}
+
+                            </p>
+
+
+                            <span class="child-status">
+
+                                Available
+
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="select-child-btn"
+                                onclick="chooseChild(
+                                    ${Number(child.id)},
+                                    '${escapeJS(child.name)}'
+                                )"
+                            >
+
+                                Select This Child
+
+                            </button>
+
+                        `;
+
+
+                        childrenList.appendChild(
+                            card
+                        );
+
+                    }
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Children loading error:",
+                    error
+                );
+
+
+                childrenList.innerHTML = `
+
+                    <div class="no-children">
+
+                        <h3>
+
+                            Unable to load children
+
+                        </h3>
+
+
+                        <p>
+
+                            Please make sure the
+                            server and database
+                            are running.
+
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           HTML ESCAPE
+        ========================================== */
+
+        function escapeHTML(value) {
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /* ==========================================
+           JAVASCRIPT STRING ESCAPE
+        ========================================== */
+
+        function escapeJS(value) {
+
+            return String(value)
+
+                .replace(
+                    /\\/g,
+                    "\\\\"
+                )
+
+                .replace(
+                    /'/g,
+                    "\\'"
+                )
+
+                .replace(
+                    /"/g,
+                    '\\"'
+                )
+
+                .replace(
+                    /\n/g,
+                    "\\n"
+                )
+
+                .replace(
+                    /\r/g,
+                    "\\r"
+                );
+
+        }
+
+
+
+        /* ==========================================
+           LOAD PAGE
+        ========================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                updateLoginNotice();
+
+                loadAdoptionChildren();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forgot Password - Hands2Hands</title>
+
+    <link rel="stylesheet" href="homestyle.css">
+
+    <style>
+        .auth-page {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(20, 70, 100, 0.65),
+                    rgba(20, 70, 100, 0.65)
+                ),
+                url("bg.jpeg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 430px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            color: #1769aa;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #607d8b;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+
+            font-weight: 600;
+            color: #37474f;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px 14px;
+
+            border: 1px solid #cfd8dc;
+            border-radius: 8px;
+
+            font-size: 16px;
+            outline: none;
+
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-color: #1769aa;
+        }
+
+        .reset-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: #1769aa;
+            color: white;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .reset-button:hover {
+            background: #0d4775;
+            transform: translateY(-2px);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .auth-links a {
+            color: #1769aa;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        #formMessage {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-card">
+
+            <h1>Forgot Password?</h1>
+
+            <p class="subtitle">
+                Enter your registered email address to request
+                a password reset.
+            </p>
+
+            <form id="forgotPasswordForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your registered email"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="reset-button"
+                >
+                    Request Password Reset
+                </button>
+
+            </form>
+
+            <div id="formMessage"></div>
+
+            <div class="auth-links">
+
+                <p>
+                    Remember your password?
+                    <a href="login.html">
+                        Login
+                    </a>
+                </p>
+
+                <p style="margin-top: 10px;">
+                    <a href="index.html">
+                        ← Back to Home
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

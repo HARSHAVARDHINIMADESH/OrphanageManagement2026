@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate - Hands2Hands</title>
+
+    <link rel="stylesheet" href="homestyle.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f9fc;
+        }
+
+        .donation-page {
+            min-height: 100vh;
+            padding: 50px 20px;
+            background: #f5f9fc;
+        }
+
+        .donation-container {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .donation-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .donation-heading h1 {
+            color: #1769aa;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .donation-heading p {
+            color: #607d8b;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .donation-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #37474f;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cfd8dc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #1769aa;
+        }
+
+        .amount-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .amount-btn {
+            padding: 12px 8px;
+            border: 1px solid #1769aa;
+            background: white;
+            color: #1769aa;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .amount-btn:hover {
+            background: #1769aa;
+            color: white;
+        }
+
+        .donate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #1769aa;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover {
+            background: #0d4775;
+        }
+
+        #donationMessage {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+
+            .donation-page {
+                padding: 30px 15px;
+            }
+
+            .donation-card {
+                padding: 25px;
+            }
+
+            .donation-heading h1 {
+                font-size: 30px;
+            }
+
+            .amount-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                <a href="index.html">
+                    Hands2Hands
+                </a>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="adopt.html">
+                    Adoption
+                </a>
+
+                <a href="donat.html">
+                    Donate
+                </a>
+
+                <a href="volunteer.html">
+                    Volunteer
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Donation Page -->
+    <main class="donation-page">
+
+        <div class="donation-container">
+
+            <div class="donation-heading">
+
+                <h1>
+                    Support Hands2Hands
+                </h1>
+
+                <p>
+                    Your contribution helps us provide
+                    food, education and care for children.
+                </p>
+
+            </div>
+
+
+            <!-- Donation Card -->
+            <div class="donation-card">
+
+                <form id="donationForm">
+
+                    <!-- Quick Amount -->
+                    <div class="form-group">
+
+                        <label>
+                            Select Amount
+                        </label>
+
+                        <div class="amount-box">
+
+                            <button
+                                type="button"
+                                class="amount-btn"
+                                onclick="setAmount(500)"
+                            >
+                                ₹500
+                            </button>
+
+                            <button
+                                type="button"
+                                class="amount-btn"
+                                onclick="setAmount(1000)"
+                            >
+                                ₹1,000
+                            </button>
+
+                            <button
+                                type="button"
+                                class="amount-btn"
+                                onclick="setAmount(2000)"
+                            >
+                                ₹2,000
+                            </button>
+
+                            <button
+                                type="button"
+                                class="amount-btn"
+                                onclick="setAmount(5000)"
+                            >
+                                ₹5,000
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Donation Amount -->
+                    <div class="form-group">
+
+                        <label for="amount">
+                            Donation Amount (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            min="1"
+                            step="0.01"
+                            placeholder="Enter amount"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Donation Purpose -->
+                    <div class="form-group">
+
+                        <label for="purpose">
+                            Donation Purpose
+                        </label>
+
+                        <select
+                            id="purpose"
+                            name="purpose"
+                            required
+                        >
+
+                            <option value="">
+                                Select purpose
+                            </option>
+
+                            <option value="General">
+                                General Support
+                            </option>
+
+                            <option value="Education">
+                                Education
+                            </option>
+
+                            <option value="Food">
+                                Food
+                            </option>
+
+                            <option value="Medical">
+                                Medical Care
+                            </option>
+
+                            <option value="Clothing">
+                                Clothing
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Submit -->
+                    <button
+                        type="submit"
+                        class="donate-btn"
+                    >
+                        Submit Donation
+                    </button>
+
+                </form>
+
+
+                <!-- Message -->
+                <div id="donationMessage"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="donation.js"></script>
+
+</body>
+
+</html>

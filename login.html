@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Hands2Hands - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+
+            <h1>
+                Hands2Hands
+            </h1>
+
+
+            <h2 id="loginTitle">
+                User Login
+            </h2>
+
+
+            <p id="loginDescription">
+                Login to continue
+            </p>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                >
+                    Login
+                </button>
+
+
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
+
+            </form>
+
+
+
+            <!-- LINKS -->
+
+            <div class="login-links">
+
+
+                <a href="forgotpass.html">
+                    Forgot Password?
+                </a>
+
+
+                <p>
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Sign Up
+                    </a>
+
+                </p>
+
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ROLE DETECTION -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const role =
+                    params.get("role") || "user";
+
+
+                const loginTitle =
+                    document.getElementById(
+                        "loginTitle"
+                    );
+
+
+                const loginDescription =
+                    document.getElementById(
+                        "loginDescription"
+                    );
+
+
+                if (role === "admin") {
+
+                    loginTitle.textContent =
+                        "Admin Login";
+
+                    loginDescription.textContent =
+                        "Login to access the admin dashboard";
+
+                } else {
+
+                    loginTitle.textContent =
+                        "User Login";
+
+                    loginDescription.textContent =
+                        "Login to continue to Hands2Hands";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

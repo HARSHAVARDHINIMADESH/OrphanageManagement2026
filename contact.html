@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Contact Us - Hands2Hands</title>
+
+    <link
+        rel="stylesheet"
+        href="homestyle.css"
+    >
+
+    <style>
+
+        .contact-page {
+
+            min-height: 100vh;
+
+            padding: 55px 20px;
+
+            background: #f5f9fc;
+
+        }
+
+
+        .contact-container {
+
+            max-width: 950px;
+
+            margin: auto;
+
+        }
+
+
+        .contact-heading {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .contact-heading h1 {
+
+            color: #1769aa;
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .contact-heading p {
+
+            color: #607d8b;
+
+            font-size: 17px;
+
+        }
+
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.5fr;
+
+            gap: 25px;
+
+        }
+
+
+        .contact-info,
+        .contact-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .contact-info h2,
+        .contact-card h2 {
+
+            color: #1769aa;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .info-item {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .info-item h3 {
+
+            color: #37474f;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .info-item p {
+
+            color: #607d8b;
+
+            line-height: 1.5;
+
+            margin: 0;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #37474f;
+
+            font-weight: 600;
+
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 13px;
+
+            border: 1px solid #cfd8dc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-family: inherit;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #1769aa;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 150px;
+
+            resize: vertical;
+
+        }
+
+
+        .contact-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #1769aa;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: #0d4775;
+
+        }
+
+
+        #formMessage {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .contact-info,
+            .contact-card {
+
+                padding: 25px;
+
+            }
+
+            .contact-heading h1 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="index.html">
+                Hands2Hands
+            </a>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="adopt.html">
+                    Adoption
+                </a>
+            </li>
+
+            <li>
+                <a href="donat.html">
+                    Donate
+                </a>
+            </li>
+
+            <li>
+                <a href="volunteer.html">
+                    Volunteer
+                </a>
+            </li>
+
+            <li>
+                <a href="events.html">
+                    Events
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- Contact -->
+
+    <main class="contact-page">
+
+        <div class="contact-container">
+
+
+            <div class="contact-heading">
+
+                <h1>
+                    Contact Us
+                </h1>
+
+                <p>
+                    Have a question or want to know more
+                    about Hands2Hands? Send us a message.
+                </p>
+
+            </div>
+
+
+
+            <div class="contact-grid">
+
+
+                <!-- Contact Information -->
+
+                <div class="contact-info">
+
+                    <h2>
+                        Get In Touch
+                    </h2>
+
+
+                    <div class="info-item">
+
+                        <h3>
+                            📍 Address
+                        </h3>
+
+                        <p>
+                            Hands2Hands Orphanage<br>
+                            Tamil Nadu, India
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <h3>
+                            📧 Email
+                        </h3>
+
+                        <p>
+                            support@hands2hands.org
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <h3>
+                            📞 Phone
+                        </h3>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <h3>
+                            ❤️ Support Us
+                        </h3>
+
+                        <p>
+                            Your support can help us provide
+                            better opportunities and care
+                            for children.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Contact Form -->
+
+                <div class="contact-card">
+
+                    <h2>
+                        Send a Message
+                    </h2>
+
+
+                    <form id="contactForm">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="contact-btn"
+                        >
+                            Send Message
+                        </button>
+
+
+                    </form>
+
+
+                    <div id="formMessage"></div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html> 
